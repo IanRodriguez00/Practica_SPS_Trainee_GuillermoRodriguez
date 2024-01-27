@@ -40,12 +40,6 @@ const handleCheckElastic =()=>setElastic(!elastic)
   e.preventDefault();
   if(nombre, fecha){
     console.log('enviando formulario')
-    console.log(nombre)
-    console.log(fecha)
-    console.log(java)
-    console.log(microservicios)
-    console.log(elastic)
-
 
      let urlPUT = 'https://pv3r532kmb.execute-api.us-east-2.amazonaws.com/test/items'
     fetch(urlPUT,{
@@ -61,17 +55,19 @@ const handleCheckElastic =()=>setElastic(!elastic)
       })
      }).then(response => response.json())
      .then(data => {console.log(data)
+      window.location.href = '/';
     alert("Actualizado Correctamente")})
     .catch(e => alert("Ha ocurrido un error!", e))
 
 
   }
   else{
-    console.log('campos vacios')
+    alert('llenar todo los campos vacios')
   }
  }
 
   return (
+    <>
     <form onSubmit={handleSubmit} action="" className=" bg-white shadow-lg rounded-lg py-20 px-5 font-bold text-2xl text-left ">
 
         <label className="block text-gray-700 p-2 mb-1">Nombre del Candidato:</label>
@@ -102,18 +98,20 @@ const handleCheckElastic =()=>setElastic(!elastic)
          </div>
     </div>
     
+    <div className="">
     
     <a href="/">
-    <button className=" bg-indigo-500 w-full p-3 block text-white uppercase font-bold rounded-lg hover:bg-indigo-700 cursor-pointer transition-all text-xl text-center ">Editar
+    <button className=" bg-green-600 w-full p-3 block text-white uppercase font-bold rounded-lg hover:bg-green-700 cursor-pointer transition-all text-xl text-center ">Editar
     </button>
-    </a>
+   </a>
+    <a className=" bg-indigo-500 w-full p-3 block text-white uppercase font-bold rounded-lg hover:bg-indigo-700 cursor-pointer transition-all text-xl text-center mt-5 md:w-auto"  href='/'>regresar
+    </a>  
+    </div>
     
-    <a className=" bg-indigo-500 w-full p-3 block text-white uppercase font-bold rounded-lg hover:bg-indigo-700 cursor-pointer transition-all text-xl text-center mt-5"  href='/'>regresar
-    </a>
-    
-    
-        
     </form>
+    
+    
+    </>
   )
 }
 

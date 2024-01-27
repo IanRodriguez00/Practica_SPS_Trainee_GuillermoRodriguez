@@ -5,7 +5,7 @@ import Header from "./pages/Header"
 
 const Layout = () => {
   return (
-    <div>
+    <div className=" overflow-hidden h-full">
      <div className="m-10 bg-gray-100">
       <Header/>
       </div>
